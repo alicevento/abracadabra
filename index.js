@@ -36,15 +36,16 @@ app.get("/abracadabra/juego/:usuario", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-//solucionando este codigo
+//Creación del middleware para ruta aleatoria
 app.get("/abracadabra/conejo/:n", (req, res) => {
-  let random = Math.floor(Math.random() * 4) + 1;
-  if (random == req.params.n) {
-    res.sendFile(__dirname + "/conejito.jpg");
-  } else {
-    res.sendFile(__dirname + "/voldemort.jpg");
-  }
-});
+    let random = Math.floor(Math.random() * 4) + 1;
+    if (random == req.params.n) {
+      res.sendFile(__dirname + "/assets/conejito.jpg"); 
+    } else {
+      res.sendFile(__dirname + "/assets/voldemort.jpg"); 
+    }
+  });
+  
 
 //Ruta genérica de que la página no existe
 app.get("*", (req, res) => {
